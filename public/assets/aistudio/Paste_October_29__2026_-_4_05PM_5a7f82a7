@@ -1,0 +1,895 @@
+# PROMPT MESTRE — SITE INSTITUCIONAL MP CENOGRAFIA
+## Google AI Studio | React + Vite + TypeScript | SEO | Portfólio | Cloudflare Pages
+
+Crie um site institucional completo, premium, responsivo e orientado à geração de orçamentos para a **MP CENOGRAFIA**, empresa especializada na fabricação de peças personalizadas em fibra de vidro, esculturas, cenografia e peças técnicas.
+
+O objetivo é apresentar a empresa como uma fabricante experiente, tecnicamente competente e preparada para atender projetos de médio e grande porte, incluindo indústrias, agências de cenografia, produtoras de eventos, shoppings, prefeituras e grandes empresas.
+
+O site deve transmitir confiança, capacidade de produção, precisão técnica, experiência e qualidade visual.
+
+**Importante:** não crie apenas um layout conceitual ou uma landing page genérica. Desenvolva uma aplicação funcional, com rotas reais, componentes reutilizáveis, navegação funcional e estrutura preparada para SEO e futura integração com um CMS.
+
+Priorize a construção de uma primeira versão completa e visualmente refinada. Não tente integrar todos os serviços externos nesta primeira etapa. A arquitetura deve permitir que façamos os refinamentos e as integrações posteriormente, sem reconstruir o projeto.
+
+---
+
+# 1. STACK E ARQUITETURA
+
+Utilize:
+
+- React.
+- Vite.
+- TypeScript.
+- React Router para navegação com URLs reais.
+- Tailwind CSS, se compatível com o ambiente.
+- Framer Motion para animações sutis.
+- react-helmet-async ou solução equivalente para metadados.
+- Lucide React para ícones.
+- Estrutura de conteúdo preparada para integração futura com Sanity CMS.
+- Compatibilidade com GitHub e Cloudflare Pages.
+
+Utilize uma arquitetura modular, com componentes reutilizáveis, dados separados da apresentação e código organizado.
+
+Evite dependências desnecessárias, código duplicado e bibliotecas pesadas para efeitos simples.
+
+O projeto precisa executar corretamente com os comandos padrão de instalação, desenvolvimento e build do Vite.
+
+Não utilize recursos exclusivos da Vercel. O deploy final será realizado no Cloudflare Pages.
+
+## Organização sugerida
+
+- `/src/components`: componentes reutilizáveis.
+- `/src/pages`: páginas e rotas.
+- `/src/data`: dados institucionais, portfólio e conteúdo provisório.
+- `/src/lib`: funções de acesso aos dados e futura integração com Sanity.
+- `/src/hooks`: hooks personalizados.
+- `/src/types`: tipos TypeScript.
+- `/public/portfolio`: fotografias reais dos trabalhos da empresa.
+- `/public`: favicon, logotipo e demais recursos estáticos.
+
+Adapte a estrutura quando necessário, mas preserve a separação entre interface, dados e lógica.
+
+---
+
+# 2. DIREÇÃO DE ARTE E IDENTIDADE VISUAL
+
+O cliente escolheu um design clean, com fundo branco. Não utilize o conceito anterior de fundo preto, neon ou estética futurista exagerada.
+
+A identidade deve combinar sofisticação editorial, engenharia, indústria e design contemporâneo.
+
+## Paleta de cores
+
+- Branco principal: `#FFFFFF`.
+- Off-white para seções alternadas: `#F7F8FA`.
+- Azul-marinho para textos: `#0B1220`.
+- Azul institucional para botões e destaques: `#2A5FA5`.
+- Cinza para textos secundários: `#64748B`.
+- Cinza-claro para bordas: `#E5E7EB`.
+
+Utilize o azul como elemento de identidade, sem transformar todas as seções em blocos coloridos.
+
+## Tipografia
+
+- Títulos: Newsreader ou Playfair Display.
+- Textos, navegação e botões: Inter.
+
+Os títulos devem ter personalidade editorial, com hierarquia clara e espaçamento refinado.
+
+## Linguagem visual
+
+- Muito espaço em branco.
+- Layouts assimétricos bem equilibrados.
+- Fotografias grandes e de alta qualidade.
+- Cards com cantos suavemente arredondados.
+- Bordas finas e sombras discretas.
+- Ícones lineares.
+- Microinterações elegantes.
+- Transições suaves.
+- Seções visualmente distintas, mas pertencentes ao mesmo sistema de design.
+
+Evite excesso de cards pequenos, gradientes chamativos, elementos decorativos sem função, sombras pesadas e aparência de template genérico de agência digital.
+
+O resultado deve parecer o site de uma empresa industrial consolidada, não uma startup de tecnologia.
+
+---
+
+# 3. LOGOTIPO E NAVEGAÇÃO
+
+Crie uma apresentação tipográfica provisória do logotipo:
+
+**MP CENOGRAFIA**
+
+Utilize as iniciais MP em destaque, com uma tipografia serifada elegante, e CENOGRAFIA em composição complementar.
+
+Não invente um símbolo definitivo nem altere a identidade de um logotipo real caso ele seja fornecido posteriormente.
+
+## Menu principal
+
+- Início.
+- Soluções, com dropdown.
+- Portfólio.
+- Blog.
+- Sobre.
+- Botão destacado: Solicitar orçamento.
+
+O menu deve permanecer visível de forma elegante durante a rolagem, utilizando fundo branco e efeito de blur discreto quando apropriado.
+
+No celular, utilize menu hambúrguer funcional, acessível e fácil de utilizar.
+
+Inclua um botão flutuante de WhatsApp nas páginas, com o seguinte destino:
+
+`https://wa.me/5511940883418`
+
+Os botões devem possuir estados de hover, foco e clique. Todos os links internos precisam direcionar às respectivas páginas reais.
+
+---
+
+# 4. HOME — ESTRUTURA E EXPERIÊNCIA
+
+A página inicial deve apresentar a empresa, mostrar seus trabalhos, explicar suas soluções e conduzir o visitante ao pedido de orçamento.
+
+## SEÇÃO 1 — HERO
+
+Crie um Hero premium de duas colunas, com composição editorial e equilíbrio visual.
+
+### Coluna esquerda
+
+Pequeno identificador visual:
+
+`01 / MP CENOGRAFIA`
+
+Título H1 estático:
+
+**Peças em fibra de vidro que ganham vida e alta performance.**
+
+O H1 deve aparecer imediatamente no HTML, sem depender de animação.
+
+Abaixo do título, implemente uma animação de texto estilo máquina de escrever (typewriter).
+
+Texto fixo:
+
+`Especialistas em`
+
+Expressões que devem alternar automaticamente:
+
+- Escultura em fibra de vidro.
+- Cenografia em fibra de vidro.
+- Fábrica de fibra de vidro.
+- Peças de Páscoa em fibra de vidro.
+- Peças de Carnaval em fibra de vidro.
+- Peças natalinas em fibra de vidro.
+- Peças técnicas em fibra de vidro.
+
+A animação deve digitar, pausar, apagar e passar à próxima expressão, em um loop contínuo.
+
+Requisitos:
+
+- Cursor de digitação discreto.
+- Velocidade confortável de leitura.
+- Altura reservada para impedir mudanças bruscas no layout.
+- Funcionamento correto em dispositivos móveis.
+- Respeito à preferência `prefers-reduced-motion`.
+- Ausência de CLS causado pela animação.
+
+Não dependa exclusivamente da animação para apresentar as palavras-chave. As páginas específicas de cada serviço serão responsáveis pelo conteúdo SEO completo e visível.
+
+Parágrafo institucional:
+
+“Fabricação personalizada e consultoria técnica para transformar conceitos complexos em soluções industriais versáteis e de alta performance.”
+
+Botões:
+
+- Falar no WhatsApp.
+- Ver portfólio.
+
+O primeiro deve abrir o WhatsApp. O segundo deve levar à seção ou página de portfólio.
+
+### Coluna direita
+
+A imagem principal deve ser uma **escultura de boi ou touro em fibra de vidro**, preferencialmente uma fotografia real fornecida nos anexos.
+
+Apresente a fotografia em um card grande, com cantos arredondados, iluminação visual adequada e sombra suave.
+
+Sobreponha um pequeno elemento flutuante com:
+
+- Ícone ou símbolo de avaliação.
+- Texto “Avaliações no Google”.
+- Cinco estrelas.
+
+Esse elemento é uma referência visual e não deve inventar nota média ou quantidade de avaliações.
+
+Texto alternativo da imagem:
+
+“Escultura de boi em fibra de vidro fabricada pela MP Cenografia”.
+
+Se a fotografia não estiver entre os arquivos realmente fornecidos, utilize um placeholder provisório apropriado e facilmente substituível. Não afirme que uma imagem ilustrativa é um trabalho real da empresa.
+
+---
+
+## SEÇÃO 2 — FAIXA DE CREDIBILIDADE
+
+Logo abaixo do Hero, crie uma faixa horizontal com três diferenciais:
+
+- +18 anos de mercado.
+- Atendimento rápido.
+- Projetos para grandes empresas.
+
+Utilize ícones lineares discretos e divisores sutis.
+
+Em telas pequenas, os itens devem se reorganizar sem perder legibilidade.
+
+---
+
+## SEÇÃO 3 — SOLUÇÕES
+
+Título sugerido:
+
+**Soluções em fibra de vidro para projetos que exigem mais.**
+
+Subtítulo:
+
+“Da concepção à fabricação, desenvolvemos peças personalizadas para aplicações cenográficas, comerciais, sazonais e técnicas.”
+
+Apresente quatro cards numerados:
+
+01. Esculturas em fibra de vidro.
+
+02. Cenografia em fibra de vidro.
+
+03. Peças sazonais em fibra de vidro.
+
+04. Peças técnicas em fibra de vidro.
+
+Cada card deve apresentar uma imagem, uma descrição breve e um link para a respectiva página.
+
+O design deve privilegiar fotografias e títulos fortes, com interações suaves no hover.
+
+---
+
+## SEÇÃO 4 — GRANDES EMPRESAS E PROJETOS CORPORATIVOS
+
+Crie uma seção própria para comunicar a capacidade de atendimento a grandes empresas.
+
+Título:
+
+**Estrutura e experiência para projetos de maior escala.**
+
+Texto:
+
+“Desenvolvemos peças personalizadas em fibra de vidro para empresas, indústrias, agências de cenografia e produtores de eventos que precisam de soluções sob medida, acompanhamento técnico e atenção aos prazos de execução.”
+
+Destaque, de maneira objetiva:
+
+- Desenvolvimento personalizado.
+- Acompanhamento técnico.
+- Planejamento de fabricação.
+- Atendimento a projetos corporativos.
+- Comunicação durante as etapas do projeto.
+
+Inclua o botão:
+
+**Solicitar proposta corporativa**
+
+Disponibilize um espaço visual para logotipos de clientes atendidos, mas utilize apenas marcas reais posteriormente fornecidas pela empresa. Não invente clientes, certificações ou parcerias.
+
+---
+
+## SEÇÃO 5 — PORTFÓLIO EM CARROSSEL INFINITO
+
+Esta é uma das seções mais importantes do site.
+
+Utilize as fotografias reais dos trabalhos da MP Cenografia fornecidas nos anexos da conversa de criação.
+
+Não utilize imagens genéricas como se fossem projetos executados pela empresa.
+
+### Comportamento
+
+Crie um carrossel horizontal em loop infinito, com movimento contínuo, lento e elegante.
+
+Requisitos:
+
+- Movimento automático sem saltos perceptíveis.
+- Loop contínuo, utilizando duplicação dos itens quando necessário.
+- Pausa ao passar o mouse.
+- Navegação manual por arraste no celular.
+- Setas e controles acessíveis quando apropriado.
+- Transições suaves.
+- Respeito a `prefers-reduced-motion`.
+- Sem animações que prejudiquem o desempenho ou a leitura.
+
+Quando houver fotografias suficientes, utilize duas fileiras com movimentos em direções opostas, produzindo um efeito de scroll reverso horizontal.
+
+Não invente projetos para preencher o carrossel.
+
+### Organização dos arquivos
+
+Crie um arquivo `/src/data/portfolio.ts` com os campos:
+
+- Título do projeto.
+- Slug.
+- Categoria.
+- Caminho da fotografia.
+- Texto alternativo descritivo.
+- Descrição resumida.
+
+Organize as imagens reais em `/public/portfolio/`, com nomes de arquivo descritivos.
+
+Cada item deve direcionar para uma página individual:
+
+`/portfolio/:slug`
+
+Prepare a estrutura para que novos projetos possam ser adicionados posteriormente pelo Sanity CMS.
+
+---
+
+## SEÇÃO 6 — PROCESSO DE TRABALHO
+
+Apresente quatro etapas em uma composição horizontal no desktop e vertical no celular.
+
+**01. Briefing**
+
+Entendimento das necessidades, aplicação, dimensões e objetivos do projeto.
+
+**02. Projeto e molde**
+
+Planejamento técnico e desenvolvimento da solução conforme as especificações aprovadas.
+
+**03. Fabricação**
+
+Produção personalizada da peça em fibra de vidro.
+
+**04. Entrega e instalação**
+
+Finalização e entrega conforme as condições acordadas para cada projeto.
+
+Use linhas, numeração e animações discretas para conectar visualmente as etapas.
+
+Não prometa serviços específicos de instalação em todos os projetos; apresente essa possibilidade conforme o escopo contratado.
+
+---
+
+## SEÇÃO 7 — AVALIAÇÕES DO GOOGLE
+
+Crie um componente reutilizável chamado `GoogleReviews`.
+
+Ele deverá aparecer na Home e na página de contato.
+
+A apresentação será em formato de carrossel, com:
+
+- Nome do avaliador.
+- Quantidade de estrelas.
+- Texto da avaliação.
+- Data, quando disponível.
+- Identificação visual do Google.
+- Botão “Ver todas as avaliações no Google”.
+
+O botão deverá direcionar ao perfil real da empresa no Google Maps.
+
+### Primeira versão
+
+Utilize uma fonte de dados separada em `/src/lib/reviews.ts`.
+
+Os dados podem ser provisórios, mas qualquer avaliação de exemplo precisa estar claramente identificada como placeholder durante o desenvolvimento.
+
+Não publique avaliações inventadas como se fossem reais.
+
+Quando as avaliações reais forem fornecidas, substitua os placeholders pelos dados verdadeiros.
+
+### Integração futura
+
+Prepare o componente para uma futura integração com a Google Places API.
+
+Não tente obter avaliações automaticamente raspando páginas do Google Maps.
+
+A chave de API não poderá ficar exposta no código do navegador. A integração futura deverá ocorrer por uma função no servidor ou mecanismo seguro compatível com o Cloudflare.
+
+Não implemente agora uma integração fictícia ou que simule uma conexão real.
+
+Não adicione marcação `AggregateRating` ou `Review` ao JSON-LD com base nessas avaliações.
+
+---
+
+## SEÇÃO 8 — ÚLTIMOS ARTIGOS DO BLOG
+
+Título:
+
+**Ideias, projetos e conhecimento técnico.**
+
+Apresente três artigos recentes em cards com:
+
+- Imagem de capa.
+- Categoria.
+- Título.
+- Resumo.
+- Data.
+- Link para leitura.
+
+Os artigos serão futuramente administrados pelo Sanity.
+
+Nesta primeira etapa, utilize dados provisórios claramente separados do código da interface.
+
+Não apresente conteúdo fictício como artigo publicado ou informação técnica validada pela empresa.
+
+Inclua o botão “Ver todos os artigos”.
+
+---
+
+## SEÇÃO 9 — PERGUNTAS FREQUENTES
+
+Crie um FAQ com cinco perguntas, utilizando acordeão acessível.
+
+Perguntas sugeridas:
+
+1. Quais tipos de peças podem ser fabricados em fibra de vidro?
+2. A MP Cenografia desenvolve peças personalizadas sob encomenda?
+3. A empresa atende grandes empresas, indústrias e agências de eventos?
+4. Como funciona o processo para solicitar um orçamento?
+5. Quais informações são necessárias para avaliar um projeto?
+
+As respostas devem ser claras, objetivas e compatíveis com as informações disponíveis.
+
+Não invente quantidades mínimas de produção, prazos garantidos, capacidade industrial, certificações ou condições comerciais.
+
+---
+
+## SEÇÃO 10 — ONDE ESTAMOS
+
+Esta seção deve aparecer após o FAQ na Home e nas páginas de solução, além de integrar a página de contato.
+
+Crie um layout de duas colunas.
+
+### Coluna esquerda
+
+Apresente:
+
+- Nome da empresa.
+- Endereço completo.
+- Telefone e WhatsApp.
+- E-mail.
+- Horário de atendimento.
+- Botão “Como chegar”.
+- Botão “Ver avaliações no Google”.
+
+Os dados deverão vir de um arquivo centralizado:
+
+`/src/data/company.ts`
+
+Utilize campos facilmente editáveis:
+
+- `name`
+- `address`
+- `telephone`
+- `email`
+- `openingHours`
+- `googleMapsProfileUrl`
+- `googleMapsEmbedUrl`
+- `websiteUrl`
+- `socialLinks`
+
+Utilize placeholders explícitos para os dados ainda não fornecidos.
+
+**Não invente endereço, horário, links, coordenadas ou informações comerciais.**
+
+O nome, o endereço e o telefone deverão corresponder exatamente aos dados oficiais do Perfil da Empresa no Google.
+
+### Coluna direita
+
+Incorpore o Google Maps por meio de um iframe com:
+
+- URL de incorporação configurável.
+- `loading="lazy"`.
+- Título acessível e descritivo.
+- Dimensões responsivas.
+- Altura adequada no desktop e no celular.
+
+Não simule um mapa com uma imagem estática.
+
+A seção deve facilitar a localização da empresa e permitir que o visitante consulte as avaliações oficiais.
+
+---
+
+## SEÇÃO 11 — CTA FINAL E FORMULÁRIO DE ORÇAMENTO
+
+Crie uma seção final com destaque visual elegante.
+
+Título:
+
+**Vamos desenvolver seu próximo projeto?**
+
+Texto:
+
+“Conte um pouco sobre a peça que você precisa fabricar. Nossa equipe poderá avaliar as informações e orientar os próximos passos.”
+
+Campos do formulário:
+
+- Nome.
+- WhatsApp.
+- E-mail.
+- Descrição da peça ou projeto.
+
+Inclua validação dos campos e mensagens de erro acessíveis.
+
+Nesta primeira versão, o formulário deverá estar preparado para integração posterior com um serviço de recebimento de leads.
+
+Não simule o envio bem-sucedido se ainda não houver um backend ou serviço de formulário configurado.
+
+Se não houver integração disponível, disponibilize uma alternativa funcional para iniciar o contato pelo WhatsApp com os dados preenchidos pelo visitante.
+
+---
+
+## SEÇÃO 12 — RODAPÉ
+
+Inclua:
+
+- Identidade MP Cenografia.
+- Breve descrição institucional.
+- Links para as principais páginas.
+- Links para soluções.
+- Link para o blog.
+- Link para o portfólio.
+- WhatsApp: +55 (11) 94088-3418.
+- E-mail: vendas@mpcenografia.com.
+- Link para o Perfil da Empresa no Google, quando fornecido.
+- Links para redes sociais reais, quando fornecidos.
+- Aviso de direitos autorais.
+
+Utilize:
+
+`© MP Cenografia`
+
+Mantenha o rodapé clean, organizado e responsivo.
+
+---
+
+# 5. PÁGINAS E ROTAS
+
+Crie rotas independentes e funcionais, com conteúdo específico para cada página.
+
+| Rota | Conteúdo |
+|---|---|
+| `/` | Home completa |
+| `/esculturas-em-fibra-de-vidro` | Esculturas personalizadas |
+| `/cenografia-em-fibra-de-vidro` | Projetos cenográficos |
+| `/pecas-sazonais-em-fibra-de-vidro` | Páscoa, Carnaval e Natal |
+| `/pecas-tecnicas-em-fibra-de-vidro` | Peças e aplicações técnicas |
+| `/portfolio` | Galeria de projetos |
+| `/portfolio/:slug` | Página individual do projeto |
+| `/blog` | Listagem de artigos |
+| `/blog/:slug` | Artigo individual |
+| `/sobre` | História e apresentação da empresa |
+| `/contato` | Contato, mapa, avaliações e orçamento |
+
+Não transforme essas páginas em uma única página com âncoras.
+
+Cada rota deverá ter seu próprio conteúdo, título SEO, descrição, canonical e estrutura de headings.
+
+## Template das páginas de solução
+
+Cada página deverá apresentar:
+
+1. Breadcrumbs.
+2. H1 específico da solução.
+3. Introdução clara.
+4. Imagem relevante.
+5. Aplicações e possibilidades.
+6. Perfil de clientes atendidos.
+7. Processo de desenvolvimento.
+8. Galeria de projetos relacionados, quando disponíveis.
+9. Perguntas frequentes específicas.
+10. Seção “Onde estamos”.
+11. CTA de orçamento.
+
+Evite copiar exatamente o mesmo texto em todas as páginas.
+
+Cada página deve responder à intenção de busca correspondente.
+
+## Página individual de projeto
+
+Apresente:
+
+- Nome do projeto.
+- Categoria.
+- Galeria de imagens.
+- Descrição.
+- Aplicação da peça.
+- Projetos relacionados.
+- CTA de orçamento.
+
+Só apresente informações técnicas e resultados efetivamente fornecidos pela empresa.
+
+## Página individual de artigo
+
+Prepare o template para receber conteúdo rico do Sanity, incluindo títulos, subtítulos, parágrafos, listas, imagens e links.
+
+A estrutura deverá permitir a inclusão futura de autor, data de publicação, data de atualização e metadados editoriais.
+
+---
+
+# 6. SEO TÉCNICO E CONTEÚDO
+
+O SEO deverá fazer parte da arquitetura desde o início, não ser adicionado apenas ao final.
+
+## Metadados
+
+Implemente metadados específicos por rota:
+
+- Title.
+- Meta description.
+- Canonical.
+- Open Graph.
+- Imagem de compartilhamento, quando disponível.
+- Metadados adequados para páginas de artigos e projetos.
+
+Evite títulos duplicados e descrições genéricas.
+
+## Hierarquia semântica
+
+- Um H1 principal por página.
+- H2 e H3 em hierarquia lógica.
+- HTML semântico.
+- Links internos descritivos.
+- Breadcrumbs.
+- Textos alternativos adequados nas imagens.
+- Conteúdo visível e útil para o visitante.
+
+## Palavras-chave prioritárias
+
+Considere a intenção de busca relacionada a:
+
+- Fábrica de fibra de vidro.
+- Fabricantes de peças em fibra de vidro.
+- Peças em fibra de vidro sob encomenda.
+- Esculturas em fibra de vidro.
+- Cenografia em fibra de vidro.
+- Peças de Páscoa em fibra de vidro.
+- Peças de Carnaval em fibra de vidro.
+- Peças natalinas em fibra de vidro.
+- Peças técnicas em fibra de vidro.
+- Fabricação personalizada em fibra de vidro.
+
+Distribua os termos de maneira natural nos títulos, textos, descrições, imagens e links internos.
+
+Não faça keyword stuffing e não crie blocos de palavras-chave ocultas exclusivamente para mecanismos de busca.
+
+A animação do Hero deverá melhorar a experiência visual, mas o posicionamento orgânico deverá ser sustentado principalmente pelas páginas de solução e pelo conteúdo útil do site.
+
+## Dados estruturados
+
+Prepare dados estruturados em JSON-LD.
+
+Na Home, utilize `LocalBusiness` somente com dados reais e apropriados.
+
+Inclua, quando disponíveis:
+
+- `name`
+- `url`
+- `telephone`
+- `email`
+- `address`
+- `hasMap`
+- `sameAs`
+
+Os dados deverão ser lidos do arquivo `company.ts`.
+
+Não invente informações de endereço ou perfis sociais.
+
+Para os artigos, prepare a estrutura `BlogPosting` com os campos reais do conteúdo.
+
+Não adicione marcação de avaliações ou notas agregadas sem atender às diretrizes aplicáveis.
+
+## Sitemap e robots.txt
+
+Prepare a geração de `sitemap.xml` e `robots.txt`.
+
+O sitemap deverá incluir as rotas públicas válidas e, posteriormente, os slugs de artigos e projetos publicados no Sanity.
+
+Não inclua páginas inexistentes ou placeholders como conteúdo publicado.
+
+Considere que o sitemap deverá ser atualizado automaticamente no processo de build.
+
+---
+
+# 7. RENDERIZAÇÃO E INDEXAÇÃO
+
+Este projeto será hospedado no Cloudflare Pages e terá um blog com publicação recorrente.
+
+Portanto, a arquitetura precisa considerar como os mecanismos de busca receberão o HTML.
+
+O projeto usa React e Vite. Não presuma que a utilização de React Router e react-helmet-async, isoladamente, resolve a renderização para SEO.
+
+Avalie e prepare uma estratégia compatível de pré-renderização estática das rotas públicas.
+
+O objetivo é que páginas de serviços, artigos e projetos possam entregar HTML inicial com:
+
+- Conteúdo principal.
+- Title e meta description.
+- Canonical.
+- Open Graph.
+- Headings.
+- Links internos.
+- Dados estruturados aplicáveis.
+
+Não declare que o site está completamente otimizado para indexação apenas porque as meta tags foram adicionadas ao código React.
+
+A solução final deverá ser compatível com o build e o deploy no Cloudflare Pages.
+
+Se a pré-renderização de rotas dinâmicas depender de uma configuração posterior, documente precisamente essa etapa, incluindo dependências, scripts e arquivos a modificar.
+
+Não substitua silenciosamente a stack solicitada por outra tecnologia.
+
+---
+
+# 8. CAMADA DE CONTEÚDO PREPARADA PARA O SANITY
+
+Nesta primeira etapa, crie uma camada de dados independente da interface.
+
+Prepare `/src/lib/content.ts` com funções assíncronas equivalentes a:
+
+- `getPosts()`
+- `getPostBySlug(slug)`
+- `getProjects()`
+- `getProjectBySlug(slug)`
+
+Utilize dados locais provisórios em `/src/data`, seguindo os mesmos formatos que serão usados futuramente pelo CMS.
+
+Crie tipos TypeScript claros para artigos, projetos, categorias e demais entidades necessárias.
+
+Os componentes não devem depender diretamente de arrays espalhados por diferentes arquivos.
+
+Quando integrarmos o Sanity, a implementação de acesso aos dados poderá ser substituída sem reconstruir toda a interface.
+
+**Não implemente uma integração fictícia com o Sanity nesta fase.** Prepare os pontos de integração e mantenha o projeto funcionando com os dados locais.
+
+---
+
+# 9. ANIMAÇÕES E MICROINTERAÇÕES
+
+O design deve ter movimento, mas preservar a estética clean e a performance.
+
+Implemente:
+
+- Typewriter no Hero.
+- Entrada suave das seções ao rolar.
+- Leve deslocamento vertical associado ao scroll.
+- Parallax horizontal reverso na seção de portfólio.
+- Carrossel de projetos em loop infinito.
+- Carrossel de avaliações.
+- Hover elegante nos cards.
+- Transições suaves nos botões.
+- Menu com comportamento refinado ao rolar.
+- Acordeão funcional no FAQ.
+
+Utilize Framer Motion quando for adequado.
+
+Evite animações excessivas, scroll hijacking, deslocamentos bruscos, efeitos que dificultem a leitura e animações que prejudiquem o uso em celulares.
+
+Respeite `prefers-reduced-motion` em todos os efeitos relevantes.
+
+---
+
+# 10. RESPONSIVIDADE E ACESSIBILIDADE
+
+O site deverá funcionar adequadamente em:
+
+- Smartphones a partir de 360 px.
+- Tablets.
+- Notebooks.
+- Monitores desktop de alta resolução.
+
+Verifique especialmente:
+
+- Hero em duas colunas no desktop e em uma coluna no celular.
+- Animação de texto sem cortes.
+- Menu mobile.
+- Carrossel com navegação por toque.
+- Formulário utilizável em telas pequenas.
+- Mapa responsivo.
+- Títulos sem overflow.
+- Imagens com proporções adequadas.
+- Contraste de texto compatível com WCAG AA.
+- Navegação por teclado.
+- Foco visível.
+- Labels e mensagens acessíveis.
+- Redução de movimento quando solicitada pelo sistema.
+
+---
+
+# 11. PERFORMANCE
+
+Busque uma implementação leve e eficiente.
+
+- Defina largura e altura das imagens.
+- Utilize lazy loading nas imagens abaixo da primeira dobra.
+- Priorize o carregamento da imagem principal do Hero.
+- Utilize imagens dimensionadas adequadamente.
+- Evite carregar bibliotecas desnecessárias.
+- Evite animações que provoquem reflow contínuo.
+- Utilize transformações CSS quando apropriado.
+- Mantenha componentes organizados e reutilizáveis.
+- Evite requisições externas desnecessárias.
+
+As fotografias reais deverão ser otimizadas antes da publicação, sem comprometer a qualidade visual dos projetos.
+
+Não prometa uma pontuação específica no PageSpeed antes de medir o site publicado.
+
+---
+
+# 12. REGRAS PARA O DESENVOLVIMENTO
+
+1. Gere código real e funcional, não apenas uma descrição do site.
+2. Não invente avaliações, clientes, certificações, endereços, depoimentos ou resultados.
+3. Não utilize fotografias genéricas como se fossem trabalhos da MP Cenografia.
+4. Não deixe botões sem ação.
+5. Não crie links internos quebrados.
+6. Não transforme as páginas em seções de uma única landing page.
+7. Não implemente integrações externas falsas.
+8. Mantenha os dados institucionais centralizados.
+9. Utilize componentes reutilizáveis.
+10. Preserve a compatibilidade com GitHub e Cloudflare Pages.
+11. Não altere a identidade visual para dark mode ou neon.
+12. Não adicione funcionalidades desnecessárias que atrasem a entrega da primeira versão.
+
+Se alguma informação real estiver faltando, utilize um placeholder claramente identificado e facilite sua substituição.
+
+---
+
+# 13. ORDEM DE EXECUÇÃO
+
+Execute o projeto de maneira organizada.
+
+### Etapa 1 — Base visual e arquitetura
+
+- Configure a estrutura React, Vite e TypeScript.
+- Configure o roteamento.
+- Implemente a identidade visual.
+- Desenvolva a Home completa.
+- Desenvolva o template reutilizável das páginas de solução.
+- Implemente os componentes de navegação, botões e rodapé.
+
+### Etapa 2 — Conteúdo e páginas
+
+- Implemente as páginas de solução.
+- Crie a listagem e o template individual do portfólio.
+- Crie a listagem e o template individual do blog.
+- Desenvolva Sobre e Contato.
+- Implemente o FAQ e a seção Onde estamos.
+
+### Etapa 3 — Interações
+
+- Implemente o typewriter.
+- Implemente os carrosséis.
+- Implemente o loop infinito do portfólio.
+- Implemente os efeitos de scroll.
+- Implemente o formulário e os links de contato.
+
+### Etapa 4 — SEO e preparação técnica
+
+- Configure metadados por rota.
+- Configure os dados estruturados aplicáveis.
+- Prepare sitemap e robots.txt.
+- Organize a camada de conteúdo.
+- Verifique a estratégia de pré-renderização.
+- Garanta que o build de produção funcione.
+
+### Etapa 5 — Verificação
+
+Confira:
+
+- Todas as rotas.
+- Todos os links.
+- Navegação mobile.
+- Carrosséis e animações.
+- Formulário.
+- Dados provisórios claramente identificados.
+- Ausência de erros de TypeScript e build.
+- Compatibilidade com o Cloudflare Pages.
+
+---
+
+# RESULTADO ESPERADO
+
+Entregue um site institucional premium para a MP Cenografia, com design branco e clean, apresentação profissional, forte destaque para os trabalhos reais, foco em grandes empresas e uma arquitetura preparada para SEO, blog e portfólio administrados futuramente pelo Sanity.
+
+A prioridade é construir uma base visual e técnica sólida, funcional e fácil de refinar.
+
+**Comece implementando o projeto. Não responda apenas com um plano, uma lista de recomendações ou uma explicação de como faria.**

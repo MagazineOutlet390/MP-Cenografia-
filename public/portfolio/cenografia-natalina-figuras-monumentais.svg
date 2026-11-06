@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="goldStar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Stylized Giant Christmas Ornament -->
+  <circle cx="400" cy="340" r="150" fill="#DC2626"/>
+  <rect x="360" y="160" width="80" height="40" rx="6" fill="url(#goldStar)"/>
+  <circle cx="400" cy="150" r="24" fill="none" stroke="#FDE047" stroke-width="8"/>
+  <!-- Light reflections on ornament -->
+  <ellipse cx="350" cy="280" rx="36" ry="18" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 350 280)"/>
+  <g transform="translate(40, 40)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#E2E8F0" letter-spacing="1.5">MP CENOGRAFIA · CENOGRAFIA NATALINA MONUMENTAL</text>
+  </g>
+  <g transform="translate(40, 560)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">[Fotografia provisória representativa · Peças natalinas monumentais em fibra de vidro]</text>
+  </g>
+</svg>

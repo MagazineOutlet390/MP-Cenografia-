@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Blueprint technical grid -->
+  <g stroke="#94A3B8" stroke-width="0.8" opacity="0.3">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40"/>
+    </pattern>
+    <rect width="800" height="600" fill="url(#grid)"/>
+  </g>
+  <!-- Technical Casing Component -->
+  <polygon points="200,420 280,220 520,220 600,420 540,460 260,460" fill="url(#metal)"/>
+  <circle cx="400" cy="330" r="48" fill="none" stroke="#38BDF8" stroke-width="4"/>
+  <circle cx="400" cy="330" r="12" fill="#38BDF8"/>
+  <!-- Dimension lines -->
+  <line x1="200" y1="480" x2="600" y2="480" stroke="#0284C7" stroke-width="2"/>
+  <line x1="200" y1="472" x2="200" y2="488" stroke="#0284C7" stroke-width="2"/>
+  <line x1="600" y1="472" x2="600" y2="488" stroke="#0284C7" stroke-width="2"/>
+  <g transform="translate(40, 40)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569" letter-spacing="1.5">MP CENOGRAFIA · ENGENHARIA DE PEÇAS TÉCNICAS PRFV</text>
+  </g>
+  <g transform="translate(40, 560)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">[Fotografia provisória representativa · Carenagens e peças industriais em fibra de vidro]</text>
+  </g>
+</svg>
