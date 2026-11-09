@@ -293,6 +293,23 @@ function run() {
     count++;
   }
 
+  // Cloudflare Pages Native SPA routing support:
+  // Cloudflare Pages natively uses 200.html as the 200 OK fallback for any unmatched routes.
+  // This eliminates the need for `/* /index.html 200` in _redirects which triggers Cloudflare's
+  // infinite loop detection (Error 10021).
+  const spaFallbackPath = path.join(distDir, '200.html');
+  const errorFallbackPath = path.join(distDir, '404.html');
+  fs.copyFileSync(indexHtmlPath, spaFallbackPath);
+  fs.copyFileSync(indexHtmlPath, errorFallbackPath);
+  console.log('Generated dist/200.html (Cloudflare Pages native SPA fallback) and dist/404.html.');
+
+  // Ensure no conflicting _redirects file exists in dist
+  const distRedirects = path.join(distDir, '_redirects');
+  if (fs.existsSync(distRedirects)) {
+    fs.unlinkSync(distRedirects);
+    console.log('Removed obsolete dist/_redirects to prevent Cloudflare Pages loop detection.');
+  }
+
   console.log(`Successfully generated static initial HTML for ${count} routes.`);
 }
 

@@ -3,8 +3,9 @@
 ## 1. Status Atual no Cloudflare Pages
 O projeto está configurado como um SPA (Single Page Application) moderno em React + Vite + TypeScript.
 - Todas as rotas possuem URLs reais e canônicas gerenciadas pelo `react-router-dom`.
-- Cada página atualiza dinamicamente o `<title>`, `<meta name="description">`, OpenGraph, Twitter Cards e dados estruturados JSON-LD via componente unificado `SEO.tsx`.
-- O arquivo `/public/_redirects` com a regra `/* /index.html 200` garante que qualquer rota acessada diretamente no Cloudflare Pages seja servida com status HTTP 200.
+- O fallback nativo do Cloudflare Pages é garantido pelo arquivo `/dist/200.html` (gerado automaticamente no build), eliminando regras circulares em `_redirects` e permitindo que qualquer rota ou recarregamento direto de página seja servido com status HTTP 200 de forma nativa e sem loops.
+- Todas as 22 páginas institucionais, soluções, portfólio e artigos do blog são pré-renderizadas estaticamente em diretórios com seus respectivos `index.html` e tags canônicas/OpenGraph prontos para rastreadores (Googlebot, Bingbot, etc.).
+
 
 ## 2. Estratégia de Pré-renderização Estática (SSG) para Crawlers
 Para entregar HTML com o conteúdo já embutido no primeiro byte (zero dependência de JavaScript para indexadores lentos), recomendamos a ativação do script de pré-renderização estática antes do deploy de produção:
