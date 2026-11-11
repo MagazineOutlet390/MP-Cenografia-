@@ -43,7 +43,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-8">
-          {/* Zone 1: Brand Wordmark (MP in serif, CENOGRAFIA complement) */}
+          {/* Zone 1: Brand Wordmark (MP in serif, CENOGRAFIA & CONSULTORIA complement) */}
           <Link
             to="/"
             className="flex items-baseline gap-2 group whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-[#2A5FA5] rounded-sm"
@@ -51,8 +51,8 @@ export function Navbar() {
             <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#0B1220] group-hover:text-[#2A5FA5] transition-colors">
               MP
             </span>
-            <span className="text-xs sm:text-sm font-semibold tracking-widest text-[#64748B] uppercase">
-              CENOGRAFIA
+            <span className="text-[11px] sm:text-sm font-semibold tracking-widest text-[#64748B] uppercase">
+              CENOGRAFIA &amp; CONSULTORIA
             </span>
           </Link>
 

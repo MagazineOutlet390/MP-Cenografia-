@@ -268,7 +268,7 @@ Solicitação recebida pelo formulário de orçamento do site.`;
                         });
                       }
                     }}
-                    placeholder="Ex: Amanda Silva ou Agência Live"
+                    placeholder="Ex: Carlos Oliveira"
                     className={`w-full px-4 py-3 rounded-lg border bg-white text-sm text-[#0B1220] placeholder-[#94A3B8] focus:outline-none focus:ring-2 focus:ring-[#2A5FA5] transition-colors ${
                       errors.name ? 'border-rose-400 bg-rose-50/20' : 'border-[#E5E7EB]'
                     }`}
