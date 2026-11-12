@@ -21,6 +21,7 @@ import { SEO } from '../components/SEO';
 import { BudgetFormSection } from '../components/BudgetFormSection';
 import { companyData } from '../data/company';
 import { trackWhatsAppClick } from '../lib/gtm';
+import { formatCanonicalUrl, formatAbsoluteImageUrl } from '../constants/site';
 
 // Helper to slugify heading text for anchor links
 function slugify(text: string): string {
@@ -285,7 +286,7 @@ export function BlogDetailPage() {
       headline: post.title,
       description: post.excerpt,
       datePublished: post.date,
-      image: post.image,
+      image: formatAbsoluteImageUrl(post.image),
       author: {
         '@type': 'Organization',
         name: post.author.name,
@@ -293,11 +294,11 @@ export function BlogDetailPage() {
       publisher: {
         '@type': 'Organization',
         name: companyData.name,
-        url: companyData.websiteUrl,
+        url: formatCanonicalUrl('/'),
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `https://mpcenografia.com.br/blog/${post.slug}`,
+        '@id': formatCanonicalUrl(`/blog/${post.slug}/`),
       },
     },
   ];
@@ -322,7 +323,7 @@ export function BlogDetailPage() {
       <SEO
         title={`${post.title} | Blog MP Cenografia`}
         description={post.metaDescription || post.excerpt}
-        canonicalPath={`/blog/${post.slug}`}
+        canonicalPath={`/blog/${post.slug}/`}
         ogType="article"
         ogImage={post.image}
         schema={schemas}

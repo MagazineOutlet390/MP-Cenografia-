@@ -1,4 +1,5 @@
 import { CompanyData } from '../types';
+import { SITE_URL } from '../constants/site';
 
 /**
  * Dados institucionais oficiais da MP Cenografia.
@@ -31,7 +32,7 @@ export const companyData: CompanyData = {
   googleMapsProfileUrl: 'https://share.google/ctSHRnPDuwmNu0ZvX',
   googleMapsDirectionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Estr.+Moinho+Velho,+1356+-+Jardim+Tom%C3%A9,+Embu+das+Artes+-+SP,+06805-170',
   googleMapsEmbedUrl: 'https://maps.google.com/maps?q=Estr.+Moinho+Velho,+1356+-+Jardim+Tom%C3%A9,+Embu+das+Artes+-+SP,+06805-170&t=&z=16&ie=UTF8&iwloc=&output=embed',
-  websiteUrl: 'https://mpcenografia.com.br',
+  websiteUrl: SITE_URL,
   socialLinks: {
     instagram: 'https://instagram.com/mpcenografia',
     linkedin: 'https://linkedin.com/company/mpcenografia',

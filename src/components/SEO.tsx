@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { companyData } from '../data/company';
+import { SITE_URL, formatCanonicalUrl, formatAbsoluteImageUrl } from '../constants/site';
 
 interface SEOProps {
   title: string;
@@ -37,9 +38,9 @@ export function SEO({
     // 2. Standard Meta
     updateMeta('name', 'description', description);
 
-    // 3. Canonical Link
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://mpcenografia.com.br';
-    const fullUrl = `${origin}${canonicalPath || (typeof window !== 'undefined' ? window.location.pathname : '')}`;
+    // 3. Canonical Link (sempre com https://mpcenografia.com e barra no final)
+    const activePath = canonicalPath || (typeof window !== 'undefined' ? window.location.pathname : '/');
+    const fullUrl = formatCanonicalUrl(activePath);
 
     let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonicalLink) {
@@ -50,9 +51,7 @@ export function SEO({
     canonicalLink.setAttribute('href', fullUrl);
 
     // Resolve absolute image URL for OpenGraph and Twitter
-    const absoluteImageUrl = ogImage.startsWith('http')
-      ? ogImage
-      : `${origin}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
+    const absoluteImageUrl = formatAbsoluteImageUrl(ogImage);
 
     // 4. OpenGraph
     updateMeta('property', 'og:title', formattedTitle);
@@ -80,7 +79,7 @@ export function SEO({
       '@type': 'LocalBusiness',
       name: companyData.name,
       legalName: companyData.name,
-      url: companyData.websiteUrl,
+      url: formatCanonicalUrl('/'),
       telephone: companyData.telephone,
       email: companyData.email,
       description: companyData.tagline,

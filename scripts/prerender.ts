@@ -5,6 +5,7 @@ import { blogPosts } from '../src/data/blog';
 import { portfolioProjects } from '../src/data/portfolio';
 import { solutionsData } from '../src/data/solutions';
 import { companyData } from '../src/data/company';
+import { SITE_URL, formatCanonicalUrl, formatAbsoluteImageUrl } from '../src/constants/site';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,7 +20,7 @@ interface RouteMeta {
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const siteUrl = 'https://mpcenografia.com.br';
+const siteUrl = SITE_URL;
 
 const routes: RouteMeta[] = [
   // 1. Homepage
@@ -34,7 +35,7 @@ const routes: RouteMeta[] = [
       '@type': 'LocalBusiness',
       name: companyData.name,
       legalName: companyData.name,
-      url: siteUrl,
+      url: formatCanonicalUrl('/'),
       telephone: companyData.telephone,
       email: companyData.email,
       description: companyData.tagline,
@@ -96,7 +97,7 @@ const routes: RouteMeta[] = [
       provider: {
         '@type': 'Organization',
         name: companyData.name,
-        url: siteUrl,
+        url: formatCanonicalUrl('/'),
       },
       areaServed: 'BR',
     },
@@ -113,10 +114,11 @@ const routes: RouteMeta[] = [
       '@type': 'CreativeWork',
       name: p.title,
       description: p.description,
-      image: `${siteUrl}${p.image}`,
+      image: formatAbsoluteImageUrl(p.image),
       creator: {
         '@type': 'Organization',
         name: companyData.name,
+        url: formatCanonicalUrl('/'),
       },
     },
   })),
@@ -130,7 +132,7 @@ const routes: RouteMeta[] = [
         headline: post.title,
         description: post.metaDescription || post.excerpt,
         datePublished: post.date,
-        image: `${siteUrl}${post.image}`,
+        image: formatAbsoluteImageUrl(post.image),
         author: {
           '@type': 'Organization',
           name: post.author.name,
@@ -138,11 +140,11 @@ const routes: RouteMeta[] = [
         publisher: {
           '@type': 'Organization',
           name: companyData.name,
-          url: siteUrl,
+          url: formatCanonicalUrl('/'),
         },
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `${siteUrl}/blog/${post.slug}`,
+          '@id': formatCanonicalUrl(`/blog/${post.slug}/`),
         },
       },
     ];
@@ -176,10 +178,8 @@ const routes: RouteMeta[] = [
 function injectMetadata(htmlTemplate: string, meta: RouteMeta): string {
   let html = htmlTemplate;
 
-  const canonicalUrl = `${siteUrl}${meta.path === '/' ? '/' : meta.path}`;
-  const absoluteImage = meta.image.startsWith('http')
-    ? meta.image
-    : `${siteUrl}${meta.image.startsWith('/') ? meta.image : `/${meta.image}`}`;
+  const canonicalUrl = formatCanonicalUrl(meta.path);
+  const absoluteImage = formatAbsoluteImageUrl(meta.image);
   const ogType = meta.ogType || 'website';
 
   // 1. Title
