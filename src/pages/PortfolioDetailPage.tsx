@@ -7,6 +7,7 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEO } from '../components/SEO';
 import { BudgetFormSection } from '../components/BudgetFormSection';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 export function PortfolioDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -130,6 +131,7 @@ export function PortfolioDetailPage() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('conteudo')}
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#25D366] hover:bg-[#20BA5A] text-white text-sm font-semibold rounded-lg shadow-xs transition-all"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />

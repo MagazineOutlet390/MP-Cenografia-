@@ -20,6 +20,7 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEO } from '../components/SEO';
 import { BudgetFormSection } from '../components/BudgetFormSection';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 // Helper to slugify heading text for anchor links
 function slugify(text: string): string {
@@ -58,12 +59,14 @@ function renderInline(text: string): React.ReactNode {
           </Link>
         );
       } else {
+        const isWhatsApp = linkUrl.includes('wa.me') || linkUrl.includes('whatsapp');
         parts.push(
           <a
             key={match.index}
             href={linkUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={isWhatsApp ? () => trackWhatsAppClick('conteudo') : undefined}
             className="text-[#2A5FA5] font-semibold underline decoration-[#2A5FA5]/30 hover:decoration-[#2A5FA5] hover:text-[#1E4680] transition-colors"
           >
             {linkText}
@@ -556,6 +559,7 @@ export function BlogDetailPage() {
                       href={companyData.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick('conteudo')}
                       className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -581,6 +585,7 @@ export function BlogDetailPage() {
                     href={companyData.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick('conteudo')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider transition-colors"
                   >
                     <MessageCircle className="w-4 h-4" />

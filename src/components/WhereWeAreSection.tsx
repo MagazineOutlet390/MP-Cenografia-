@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Clock, ArrowUpRight, Navigation } from 'lucide-react';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 interface WhereWeAreSectionProps {
   className?: string;
@@ -56,6 +57,7 @@ export function WhereWeAreSection({ className = '' }: WhereWeAreSectionProps) {
                     href={companyData.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick('contato')}
                     className="text-xs text-[#2A5FA5] hover:underline"
                   >
                     {companyData.whatsappFormatted}

@@ -12,6 +12,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { companyData } from '../data/company';
+import { trackGenerateLead } from '../lib/gtm';
 
 interface BudgetFormSectionProps {
   id?: string;
@@ -90,6 +91,9 @@ export function BudgetFormSection({ id = 'orcamento', defaultService = '' }: Bud
     if (!validate()) return;
 
     setIsSubmitting(true);
+
+    // Registra evento de conversão generate_lead no GTM antes do encaminhamento ao WhatsApp
+    trackGenerateLead();
 
     // Template oficial solicitado
     const message = `NOVA SOLICITAÇÃO DE ORÇAMENTO — MP CENOGRAFIA

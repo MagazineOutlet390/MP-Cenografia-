@@ -7,6 +7,7 @@ import { WhereWeAreSection } from './WhereWeAreSection';
 import { BudgetFormSection } from './BudgetFormSection';
 import { SEO } from './SEO';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 interface SolutionPageTemplateProps {
   solution: SolutionData;
@@ -77,6 +78,7 @@ export function SolutionPageTemplate({ solution, relatedProjects }: SolutionPage
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('conteudo')}
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#2A5FA5] hover:bg-[#1E4680] text-white text-sm font-semibold rounded-lg shadow-xs transition-all"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />

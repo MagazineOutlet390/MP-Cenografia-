@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { MessageCircle, ArrowRight, Star } from 'lucide-react';
 import { HeroTypewriter } from './HeroTypewriter';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 export function Hero() {
   return (
@@ -38,6 +39,7 @@ export function Hero() {
                 href={companyData.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('hero')}
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-[#2A5FA5] hover:bg-[#1E4680] rounded-lg shadow-sm transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A5FA5]"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />

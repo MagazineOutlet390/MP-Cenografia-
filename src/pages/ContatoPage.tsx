@@ -5,6 +5,7 @@ import { GoogleReviews } from '../components/GoogleReviews';
 import { WhereWeAreSection } from '../components/WhereWeAreSection';
 import { BudgetFormSection } from '../components/BudgetFormSection';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 export function ContatoPage() {
   return (
@@ -52,6 +53,7 @@ export function ContatoPage() {
                 href={companyData.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('contato')}
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2A5FA5] hover:underline"
               >
                 <span>{companyData.whatsappFormatted}</span>

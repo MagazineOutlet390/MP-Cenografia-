@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { companyData } from '../data/company';
+import { trackWhatsAppClick } from '../lib/gtm';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -114,6 +115,7 @@ export function Footer() {
                 href={companyData.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('footer')}
                 className="flex items-center gap-2 hover:text-[#2A5FA5] transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#2A5FA5] shrink-0" />
